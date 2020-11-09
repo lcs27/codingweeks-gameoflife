@@ -1,14 +1,18 @@
+'''
+Date: 2020-11-09 15:13:17
+LastEditors: Lonel Vino
+LastEditTime: 2020-11-09 22:05:03
+FilePath: \gameoflife\generate_universe.py
+'''
+
+
 import numpy as np
+from seeds import seeds
 
 #dictionnaire de graines
-seeds = {
-    "boat": [[1, 1, 0], [1, 0, 1], [0, 1, 0]],
-    "r_pentomino": [[0, 1, 1], [1, 1, 0], [0, 1, 0]]
-}
-
 
 def generate_universe(size):
-    s = np.zeros(size, dtype=np.int)
+    s = np.zeros((size[0], size[1]), dtype=np.int)
     return s
 
 #création d'une graine à partir du dictionnaire de graines
