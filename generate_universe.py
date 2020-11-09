@@ -6,5 +6,3 @@ def generate_universe(size):
             p.append (0)
         s.append(p)
     return s
-
-print(generate_universe([5,5]))
