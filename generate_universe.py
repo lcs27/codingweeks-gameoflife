@@ -1,8 +1,11 @@
+import numpy as np
+
 def generate_universe(size):
-    s = []
-    for i in range(0,size[0]):
-        p = []
-        for j in range(0,size[1]):
-            p.append (0)
-        s.append(p)
+    s = np.zeros(size, dtype=np.int)
     return s
+
+### test code
+if __name__ == '__main__':
+    s = generate_universe((3,2))
+    print(s)
+    
