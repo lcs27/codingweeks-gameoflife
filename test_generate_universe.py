@@ -3,11 +3,12 @@ from pytest import *
 import numpy as np
 
 def test_generate_universe():
-    np.testing.assert_array_equal(generate_universe((4,4)),np.array([[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]))
+    universe = generate_universe((4,4))
+    np.testing.assert_array_equal(universe,np.array([[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]))
 
-# def test_create_seed():
-#     seed = create_seed(type_seed = "r_pentomino")
-#     assert seed == [[0, 1, 1], [1, 1, 0], [0, 1, 0]]
+def test_create_seed():
+    seed = create_seed(type_seed = "r_pentomino")
+    np.testing.assert_array_equal(seed,np.array([[0,1,1],[1,1,0],[0,1,0]]))
 
 # def test_add_seed_to_universe():
 #     seed = create_seed(type_seed = "r_pentomino")
@@ -23,3 +24,4 @@ def test_generate_universe():
 
 if __name__ == "__main__":
     test_generate_universe()
+    test_create_seed()
