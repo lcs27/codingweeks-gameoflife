@@ -1,5 +1,6 @@
 from rules import *
 from generate_universe import *
+import numpy as np
 
 def test_survival():
     #Generation of a universe
@@ -52,6 +53,31 @@ def test_survival():
     '''
     assert survival((1,3),universe) == 0
 
+def test_generation():
+    # Generation of all cells in an universe
+    # Generation with seed "r_pentomino"
+    test_seed_1 = create_seed(type_seed = "r_pentomino")
+    test_universe_1 = generate_universe(size=(6, 6))
+    test_universe_1 = add_seed_to_universe(test_seed_1, test_universe_1,x_start=1, y_start=1)
+    test_universe_1 = generation(test_universe_1)
+    '''
+    Po:0,1,2,3,4,5
+     0[0,0,0,0,0,0],
+     1[0,0,1,1,0,0],
+     2[0,1,1,0,0,0],
+     3[0,0,1,0,0,0],
+     4[0,0,0,0,0,0],
+     5[0,0,0,0,0,0] 
+    '''
+    test_equality_1 = np.array(test_universe_1 == np.array([[0,0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0 ,1, 1, 0, 0, 0],
+        [0 ,0, 0, 0, 0, 0],
+        [0 ,0, 0, 0, 0, 0]],dtype=np.uint8))
+    assert test_equality_1.all()
+
 #Test code
 if __name__ == '__main__':
     test_survival()
+    test_generation()

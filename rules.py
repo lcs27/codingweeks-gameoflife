@@ -1,3 +1,4 @@
+import numpy as np
 def survival(coordinates,universe):
     '''
     Checks surrounding cells to determine if the cell will be alive or dead afterwards
@@ -7,7 +8,7 @@ def survival(coordinates,universe):
     coordinates
         Tuple of (y,x) of selected cell
     universe
-        Initial universe containing selected cell
+        Array of initial universe containing selected cell
     
     Returns
     -------
@@ -26,7 +27,7 @@ def survival(coordinates,universe):
             try:
                 count += universe[y+i,x+j]
             except:
-                continue     #if the cell has fewer tahn 8 neighbors
+                continue     #if the cell has fewer than 8 neighbors
 
     #Judgement of conditions
     if universe[y,x] and (count == 2 or count == 3): #Generation
@@ -35,3 +36,27 @@ def survival(coordinates,universe):
         return 1
     else:           #the rest live cells die and dead cells remain dead
         return 0
+
+def generation(universe):
+    '''
+    Generates the next iteration of the universe.
+
+    Parameters
+    -------
+    universe
+        Array of initial universe on which the next iteration is to be generated
+    
+    Returns
+    --------
+    new_universe
+        Array of the new universe obtained
+    
+    '''
+    num_rows_univ,num_cols_univ = universe.shape
+    new_universe = np.zeros([num_rows_univ,num_cols_univ])
+    for i in range(0,num_rows_univ):
+        for j in range(0,num_cols_univ):
+            new_universe[i,j] = survival((i,j),universe)
+    return new_universe
+    
+            
