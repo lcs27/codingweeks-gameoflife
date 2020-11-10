@@ -3,9 +3,10 @@ import numpy as np
 def generate_universe(size):
     return np.zeros(size, dtype=np.int)
 
-def create_seed(type_seed="r_pentomino"):
-    if type_seed == "r_pentomino":
-        return np.array([[0,1,1],[1,1,0],[0,1,0]])
+dict_seed = {'r_pentomino':[[0, 1, 1], [1, 1, 0], [0, 1, 0]]}
+
+def create_seed(type_seed):
+  return np.array(dict_seed[type_seed])
 
 def add_seed_to_universe(seed,universe,x_start=0,y_start=0):
     num_rows,num_cols = seed.shape
