@@ -8,7 +8,6 @@ def test_generate_universe():
 
 def test_create_seed():
     seed = create_seed(type_seed = "r_pentomino")
-    print(seed)
     np.testing.assert_array_equal(seed,np.array([[0,1,1],[1,1,0],[0,1,0]]))
 
 def test_add_seed_to_universe():
@@ -26,3 +25,4 @@ def test_add_seed_to_universe():
 if __name__ == "__main__":
     test_generate_universe()
     test_create_seed()
+    test_add_seed_to_universe()
