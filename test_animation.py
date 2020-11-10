@@ -7,4 +7,5 @@ from animation import *
 
 if __name__=='__main__':
     #beacon_gif()
-    animate((20,20),"infinite",(7,7),'Greys',n_generations=30,save=True)
+    animate((20,20),"infinite",(7,7),'flag',n_generations=30,interval=30,save=True)
+    print('Finished')

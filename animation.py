@@ -29,7 +29,7 @@ def beacon_gif():
 
 
     
-def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,save=False):
+def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,save=False,special_writer=False):
     '''
     The basic animation of game_of_life
 
@@ -49,6 +49,8 @@ def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,
         (int )time interval between updates (milliseconds), defaults to 300ms
     save
         (bool) whether the animation should be saved, defaults to False
+    writer
+        (str) the writer of video,defaults to 'imagemagick'
     '''
 
     # Generation of universe
@@ -69,8 +71,8 @@ def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,
     
     #Saving gif
     if save:
-        name_of_gif=seed+'in'+str(universe_size[0])+'_'+str(universe_size[1])+'.gif'
-        ani.save(name_of_gif, writer='imagemagick')
+        name_of_gif='gameoflife_'+seed+'_in_'+str(universe_size[0])+'_'+str(universe_size[1])+'.gif'
+        ani.save(name_of_gif, writer='ffmpeg') # To be changed to imagemagick if necessairy
     else:
         plt.show()
 
