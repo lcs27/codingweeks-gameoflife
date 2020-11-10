@@ -5,7 +5,7 @@ def survival(coordinates,universe):
     Parameters
     -------
     coordinates
-        Tuple containing x and y values of the selected cell
+        Tuple of (y,x) of selected cell
     universe
         Initial universe containing selected cell
     
@@ -15,20 +15,23 @@ def survival(coordinates,universe):
         1 for alive and 0 for dead
     
     '''
+    # Count the numbr of live neighbors
     count = 0
-    x = coordinates[0]
-    y = coordinates[1]
+    y = coordinates[0]
+    x = coordinates[1]
     for i in [-1,0,1]:
         for j in [-1,0,1]:
             if i == 0 and j == 0:
                 continue
             try:
-                count += universe[x+i,y+j]
+                count += universe[y+i,x+j]
             except:
-                continue
-    if universe[x,y] and (count == 2 or count == 3):
+                continue     #if the cell has fewer tahn 8 neighbors
+
+    #Judgement of conditions
+    if universe[y,x] and (count == 2 or count == 3): #Generation
         return 1
-    elif not universe[x,y] and count == 3:
+    elif not universe[y,x] and count == 3: #Reproduction
         return 1
-    else:
+    else:           #the rest live cells die and dead cells remain dead
         return 0
