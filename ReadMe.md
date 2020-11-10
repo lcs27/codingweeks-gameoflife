@@ -6,3 +6,6 @@ Members(Alphabetic ordered):
 -Mingshan Ye
 -Raven Bast
 -Yue Yang Oo
+
+Function finished: function 8,Visualisation and animation of game of life
+3 Problems/Ameliorations to be finished
