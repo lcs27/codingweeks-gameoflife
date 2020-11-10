@@ -4,33 +4,75 @@ import matplotlib.animation as anim
 from generate_universe import *
 from simulation import *
 
+
 def beacon_gif():
+    # Generation of universe
     universe = generate_universe(size=(6, 6))
     seed = create_seed(type_seed = "beacon")
-    universe = add_seed_to_universe(seed,universe,x_start=1,y_start=1)    
+    universe = add_seed_to_universe(seed,universe,x_start=1,y_start=1)
+
+    #Initialisation
     fig = plt.figure()
     im = plt.imshow(universe, cmap='Greys', animated = True)
+
+    #Update formula
     def update(i):
         im.set_array(game_life_simulate(universe,i))
         return im,
+    
+    #Animating beacon for 24 frames
     ani = anim.FuncAnimation(fig, update, frames=24, interval = 500, blit = True)
     plt.show()
 
+    #Saving gif
+    ani.save('filename.gif', writer='imagemagick')
+
+
     
-def animate(universe,cmap,n_generations,interval,save=False,path=None):
+def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,save=False):
     '''
     The basic animation of game_of_life
 
     Parameters
     --------
-    :param universe
-        Array of initial universe on which the next iteration is to be generated
-    :param cmap: 
+    universe_size: 
+        tuple (int, int) dimensions of the universe
+    seed: 
+        (list of lists, np.ndarray) initial starting array
+    seed_position: 
+        (tuple (int, int)) coordinates where the top-left corner of the seed array should be pinned
+    cmap
         (str) the matplotlib cmap that should be used
-    :param n_generations: 
+    n_generations
         (int) number of universe iterations, defaults to 30
-    :param interval: 
+    interval
         (int )time interval between updates (milliseconds), defaults to 300ms
-    :param save: 
+    save
         (bool) whether the animation should be saved, defaults to False
     '''
+
+    # Generation of universe
+    universe = generate_universe(size=universe_size)
+    universe = add_seed_to_universe(create_seed(seed),universe,x_start=seed_position[1],y_start=seed_position[0])
+    
+    #Initialisation
+    fig = plt.figure()
+    im = plt.imshow(universe, cmap=cmap, animated = True)
+
+    #Update formula
+    def update(i):
+        im.set_array(game_life_simulate(universe,i))
+        return im,
+    
+    #Animating beacon for 24 frames
+    ani = anim.FuncAnimation(fig, update, frames=n_generations, interval = interval, blit = True)
+    
+    #Saving gif
+    if save:
+        name_of_gif=seed+'in'+str(universe_size[0])+'_'+str(universe_size[1])+'.gif'
+        ani.save(name_of_gif, writer='imagemagick')
+    else:
+        plt.show()
+
+    
+    
