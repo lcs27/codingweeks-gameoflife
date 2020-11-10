@@ -18,8 +18,6 @@ def generate_universe(size):
     return np.zeros(size, dtype=np.int)
 
 
-dict_seed = {'r_pentomino':[[0, 1, 1], [1, 1, 0], [0, 1, 0]]}
-
 def create_seed(type_seed):
     '''
     Create the seed by the given dictionnary
@@ -59,13 +57,23 @@ def add_seed_to_universe(seed,universe,x_start=0,y_start=0):
         the new universe that has been inserted
     
     '''
-    num_rows,num_cols = seed.shape
-    universe[y_start:y_start+num_rows,x_start:x_start+num_cols] = seed
+    #Exception detect
+    num_rows_seed,num_cols_seed = seed.shape
+    num_rows_univ,num_cols_univ = universe.shape
+    try:
+        if num_rows_seed > num_rows_univ or num_cols_seed > num_cols_univ:
+            raise ValueError("The seed is bigger than the size of the universe!")
+        if y_start + num_rows_seed > num_rows_univ or x_start + num_cols_seed > num_cols_univ:
+            raise ValueError("The seed is outside of the universe!")
+    except:
+        return universe
+    universe[y_start:y_start+num_rows_seed,x_start:x_start+num_cols_seed] = seed
     return universe
 
+
 def display_universe(universe):
-     '''
-     To display the universe
+    '''
+    To display the universe
 
     Parameters:
     -------
@@ -74,6 +82,30 @@ def display_universe(universe):
     '''
     plt.imshow(universe, cmap='Greys')
     plt.show()
+
+
+dict_seed = {
+    "boat": [[1, 1, 0], [1, 0, 1], [0, 1, 0]],
+    "r_pentomino": [[0, 1, 1], [1, 1, 0], [0, 1, 0]],
+    "beacon": [[1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 1, 1], [0, 0, 1, 1]],
+    "acorn": [[0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0], [1, 1, 0, 0, 1, 1, 1]],
+    "block_switch_engine": [
+        [0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 1, 0, 1, 1],
+        [0, 0, 0, 0, 1, 0, 1, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0],
+        [1, 0, 1, 0, 0, 0, 0, 0],
+    ],
+    "infinite": [
+        [1, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0],
+        [0, 0, 0, 1, 1],
+        [0, 1, 1, 0, 1],
+        [1, 0, 1, 0, 1],
+    ],
+}
+
 
 if __name__ == "__main__":
     #print(generate_universe((4,4)))

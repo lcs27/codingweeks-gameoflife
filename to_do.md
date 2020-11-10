@@ -1,0 +1,3 @@
+-------------------------Function3:Amelioration-------------------------------------------------
+Alimenter un catalogue d'amorces en scrapant le deuxième site et en inférant et en générant la forme de l'amorce à partir des informations présentes sur la page ou en analysant une image de l'amorce (ou pattern).
+(see https://gitlab-cw5.centralesupelec.fr/celine.hudelot/cs_codingweek_game_of_life_2020/-/blob/master/jeudelavie_S1_Amorces.md  befor step 1)
