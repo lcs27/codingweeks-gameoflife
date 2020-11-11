@@ -25,6 +25,7 @@ def test_add_seed_to_universe():
         [0 ,0, 0, 0, 0, 0]],dtype=np.uint8))
     assert test_equality.all()
 
+
 def test_constraints():
 
     # The seed is outside of the universe
@@ -53,7 +54,7 @@ def test_display_universe():
     display_universe(test_universe)
 
 
-### 1st Layer Test ###
+### Full Test ###
 if __name__ == "__main__":
     test_generate_universe()
     test_create_seed()

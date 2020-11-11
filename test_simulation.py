@@ -2,11 +2,14 @@ from simulation import *
 from generate_universe import *
 import numpy as np
 
+
 def test_survival():
-    #Generation of a universe
+    
+    # Generation of a universe with seed
     seed = create_seed(type_seed = "r_pentomino")
     universe = generate_universe(size=(6,6))
     universe = add_seed_to_universe(seed, universe,x_start=1, y_start=1)
+
     '''
     The universe is:
     Po:0,1,2,3,4,5
@@ -18,7 +21,7 @@ def test_survival():
      5[0,0,0,0,0,0] 
     '''
 
-    #Reproduction: A dead cell with exactly three live neighbours becomes a live cell.
+    # Reproduction: A dead cell with exactly three live neighbours becomes a live cell.
     assert survival((1,1),universe) == 1
     #No change: A dead celle remains dead with only 2 live celles around it
     assert survival((3,3),universe) == 0
@@ -113,7 +116,7 @@ def test_simulate():
     assert test_equality_2.all()
 
 
-#Test code
+### Full Test ###
 if __name__ == '__main__':
     test_survival()
     test_generation()
