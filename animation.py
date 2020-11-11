@@ -66,12 +66,12 @@ def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,
         im.set_array(game_life_simulate(universe,i))
         return im,
     
-    #Animating beacon for 24 frames
+    #Animating beacon
     ani = anim.FuncAnimation(fig, update, frames=n_generations, interval = interval, blit = True)
     
     #Saving gif
     if save:
-        name_of_gif='gameoflife_'+seed+'_in_'+str(universe_size[0])+'_'+str(universe_size[1])+'.gif'
+        name_of_gif = seed + '_universe_' + str(universe_size[0]) + '-' + str(universe_size[1]) + '_generations_' + str(n_generations) + '_interval_' + str(interval)+ '.gif'
         ani.save(name_of_gif, writer='ffmpeg') # To be changed to imagemagick if necessairy
     else:
         plt.show()
