@@ -69,18 +69,25 @@ def add_seed_to_universe(seed,universe,x_start=0,y_start=0):
     excy = num_rows_seed + y_start - num_rows_univ
     excx = num_cols_seed + x_start - num_cols_univ
         #while compte + y_start < num_rows_univ and compte + x_start < num_cols_univ:
+    print(y_start+num_rows_seed)
+    print(x_start+num_cols_seed)
     if  num_rows_univ >= y_start+num_rows_seed and num_cols_univ >= x_start+num_cols_seed:
         universe[y_start:y_start+num_rows_seed,x_start:x_start+num_cols_seed] = seed
     elif num_rows_univ < y_start+num_rows_seed and num_cols_univ > x_start+num_cols_seed:
-        universe[y_start:num_rows_univ,x_start:x_start+num_cols_seed]=seed[0:num_rows_seed-excy,0:num_cols_seed]
-        universe[0:excy,0:num_rows_univ]=seed[excy:num_rows_seed,0]
-    elif num_rows_univ < y_start+num_rows_seed and num_cols_univ < x_start+num_cols_seed:
+        universe[y_start:num_rows_univ,x_start:x_start+num_rows_seed]=seed[0:num_rows_seed-excy,0:num_cols_seed]
+        universe[0:excy,0:num_cols_seed]=seed[num_rows_seed-excy:num_rows_seed,0:num_cols_seed]
+    elif num_rows_univ > y_start+num_rows_seed and num_cols_univ < x_start+num_cols_seed:
         universe[y_start:y_start+num_rows_seed,x_start:num_rows_univ]=seed[0:num_rows_seed,0:num_cols_seed-excx]
-        universe[0:num_cols_univ,0:excx]=seed[0,excx:num_cols_seed]
-        
+        universe[0:num_rows_seed,0:excx]=seed[0:num_rows_seed,num_cols_seed-excx:num_cols_seed]
+    elif num_rows_univ < y_start+num_rows_seed and num_cols_univ < x_start+num_cols_seed:
+        #universe[y_start:num_rows_univ,x_start:num_rows_univ]=seed[0:num_rows_seed-excy,0:num_cols_seed-excx]
+        #universe[0:excy,0:excx]=seed[num_rows_seed-excy:num_rows_seed,num_cols_seed-excx:num_cols_seed]
+        universe[y_start:num_rows_univ,x_start:num_cols_univ]=seed[0:num_rows_seed-excy,0:num_cols_seed-excx]
+        universe[0:excy,0:num_cols_seed]=seed[num_rows_seed-excy:num_rows_seed,0:num_cols_seed]
+        universe[0:num_rows_seed,0:excx]=seed[0:num_rows_seed,num_cols_seed-excx:num_cols_seed]
         #universe[min(y_start:num_rows_univ,y_start:num_rows_seed),min(x_start:num_cols_univ,x_start:num_cols_seed)]=seed[0:num_rows_seed-excy,0:num_cols_seed-excx]
         #universe[0:excy,0:excx]=seed[excy:num_rows_seed,excx:num_cols_seed]
-    print(universe[1:3,2:4])
+    
         
     #else:
      #   universe[y_start:y_start+num_rows_seed,x_start:x_start+num_cols_seed] = seed
@@ -127,5 +134,5 @@ if __name__ == "__main__":
     universe=generate_universe([6,6])
     #print(np.array([[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]))
     #print(create_seed(type_seed = "r_pentomino"))
-    print(add_seed_to_universe(create_seed("boat"),universe,4,0))
+    print(add_seed_to_universe(create_seed("boat"),universe,4,4))
     
