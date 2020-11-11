@@ -91,5 +91,5 @@ def game_life_simulate(universe, iterations):
     latest_universe = None
     for i in range(0,iterations):
         latest_universe = generation(universe)
-        universe = next_universe
+        universe = latest_universe
     return latest_universe
