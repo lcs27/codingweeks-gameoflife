@@ -2,8 +2,10 @@ from simulation import *
 from generate_universe import *
 import numpy as np
 
+
 def test_survival():
-    #Generation of a universe
+    
+    # Generation of a universe with seed
     seed = create_seed(type_seed = "r_pentomino")
     universe = generate_universe(size=(6,6))
     universe = add_seed_to_universe(seed, universe,x_start=1, y_start=1)
@@ -18,14 +20,17 @@ def test_survival():
      5[0,0,0,0,0,0] 
     '''
 
-    #Reproduction: A dead cell with exactly three live neighbours becomes a live cell.
+    # Reproduction: A dead cell with exactly three live neighbours becomes a live cell
     assert survival((1,1),universe) == 1
-    #No change: A dead celle remains dead with only 2 live celles around it
+    
+    # No change: A dead cell with only 2 live neighbours remains dead
     assert survival((3,3),universe) == 0
-    #Generation: A live cell with two or three live neighbours lives on to the next generation.
-    assert survival((1,2),universe) == 1#three live neighbours
-    assert survival((1,3),universe) == 1#two live neighbours
-    #Overpopulation: A live cell with more than three live neighbours dies.
+    
+    # Generation: A live cell with two or three live neighbours stays alive
+    assert survival((1,2),universe) == 1 # 3 live neighbours
+    assert survival((1,3),universe) == 1 # 2 live neighbours
+    
+    # Overpopulation: A live cell with more than three live neighbours dies
     universe[2,0] = 1
     universe[3,1] = 1
     '''
@@ -39,7 +44,8 @@ def test_survival():
      5[0,0,0,0,0,0] 
     '''
     assert survival((3,1),universe) == 0
-    #Underpopulation: A live cell with fewer than two live neighbours dies.
+    
+    # Underpopulation: A live cell with fewer than two live neighbours dies
     universe[1,2] = 0
     '''
     The universe is:
@@ -53,9 +59,10 @@ def test_survival():
     '''
     assert survival((1,3),universe) == 0
 
+
 def test_generation():
-    # Generation of all cells in an universe
-    # Generation with seed "r_pentomino"
+
+    # Generation of the next iteration of a universe with pre-added seed
     test_seed_1 = create_seed(type_seed = "r_pentomino")
     test_universe_1 = generate_universe(size=(6, 6))
     test_universe_1 = add_seed_to_universe(test_seed_1, test_universe_1,x_start=1, y_start=1)
@@ -77,7 +84,10 @@ def test_generation():
         [0, 0, 0, 0, 0, 0]],dtype=np.uint8))
     assert test_equality_1.all()
 
+
 def test_simulate():
+
+    # Generation of a universe with seed
     initial_universe = generate_universe(size=(6, 6))
     test_seed_1 = create_seed(type_seed = "r_pentomino")
     initial_universe = add_seed_to_universe(test_seed_1, initial_universe,x_start=1, y_start=1)
@@ -102,7 +112,7 @@ def test_simulate():
         [0 , 0, 0, 0, 0, 0]],dtype=np.uint8))
     assert test_equality_1.all()
     
-    #Two times
+    # Two times
     test_universe_2 = game_life_simulate(initial_universe,2)
     test_equality_2 = np.array(test_universe_2 == np.array([[0, 0, 1, 0, 0, 0],
         [0, 1, 1, 0, 0, 0],
@@ -113,7 +123,7 @@ def test_simulate():
     assert test_equality_2.all()
 
 
-#Test code
+### Full Test ###
 if __name__ == '__main__':
     test_survival()
     test_generation()
