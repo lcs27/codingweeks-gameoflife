@@ -69,11 +69,6 @@ def add_seed_to_universe(seed,universe,y_start=0,x_start=0):
             raise ValueError("The seed is bigger than the size of the universe!")
     except:
         return universe
-<<<<<<< HEAD
-    
-    # Insert seed and return universe with seed inserted
-    universe[y_start:y_start+num_rows_seed,x_start:x_start+num_cols_seed] = seed
-=======
     excy = num_rows_seed + y_start - num_rows_univ
     excx = num_cols_seed + x_start - num_cols_univ
     if  num_rows_univ >= y_start+num_rows_seed and num_cols_univ >= x_start+num_cols_seed:
@@ -88,7 +83,6 @@ def add_seed_to_universe(seed,universe,y_start=0,x_start=0):
         universe[y_start:num_rows_univ,x_start:num_cols_univ]=seed[0:num_rows_seed-excy,0:num_cols_seed-excx]
         universe[0:excy,0:num_cols_seed]=seed[num_rows_seed-excy:num_rows_seed,0:num_cols_seed]
         universe[0:num_rows_seed,0:excx]=seed[0:num_rows_seed,num_cols_seed-excx:num_cols_seed]
->>>>>>> origin/border
     return universe
 
 
@@ -97,6 +91,12 @@ def display_universe(universe):
     Displays the universe
 
     Parameters:
+    -------
+    universe
+        Numpy array of universe to be displayed
+    
+    plt.imshow(universe, cmap='Greys')
+    plt.show():
     -------
     universe
         Numpy array of universe to be displayed
@@ -134,15 +134,8 @@ dict_seed = {
         [1,1,1]
     ]
 }
-
-
 if __name__ == "__main__":
     universe=generate_universe([6,6])
     #print(np.array([[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]))
     #print(create_seed(type_seed = "r_pentomino"))
-<<<<<<< HEAD
     pass
-=======
-    print(add_seed_to_universe(create_seed("boat"),universe,4,4))
-    
->>>>>>> origin/border
