@@ -26,6 +26,8 @@ def survival(coordinates,universe):
         for j in [-1,0,1]:
             if i == 0 and j == 0:
                 continue # Do not include cell whose neighbours are to be checked
+            if y+i <=0 or x+j <=0:
+                continue
             try:
                 count += universe[y+i,x+j]
             except:
@@ -63,6 +65,7 @@ def generation(universe):
     for i in range(0,num_rows_univ):
         for j in range(0,num_cols_univ):
             new_universe[i,j] = survival((i,j),universe)
+    
     return new_universe
 
 
