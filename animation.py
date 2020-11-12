@@ -1,4 +1,3 @@
-import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 from generate_universe import *
@@ -18,7 +17,7 @@ def beacon_gif():
 
     # Update formula
     def update(i):
-        im.set_array(game_life_simulate(universe,i))
+        im.set_array(game_life_simulate(universe,i,universe_dict))
         return im,
     
     # Animating beacon for 24 frames
@@ -28,8 +27,10 @@ def beacon_gif():
     # Saving gif
     ani.save('beacon.gif', writer='imagemagick')
 
+    # Reset universe_dict
+    reset_universe_dict(universe_dict)
 
-    
+
 def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,save=False,special_writer='imagemagick'):
     '''
    Basic animation of game_of_life
@@ -64,7 +65,7 @@ def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,
 
     #Update formula
     def update(i):
-        im.set_array(game_life_simulate(universe,i))
+        im.set_array(game_life_simulate(universe,i,universe_dict))
         return im,
     
     # Animating universe
@@ -76,3 +77,6 @@ def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,
         ani.save(name_of_gif, writer='ffmpeg') # To be changed to imagemagick if necessairy
     else:
         plt.show()
+
+    # Reset universe_dict
+    reset_universe_dict(universe_dict)

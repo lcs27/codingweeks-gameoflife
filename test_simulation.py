@@ -93,7 +93,7 @@ def test_simulate():
     initial_universe = add_seed_to_universe(test_seed_1, initial_universe,x_start=1, y_start=1)
     
     # Zero time
-    test_universe_0 = game_life_simulate(initial_universe,0)
+    test_universe_0 = game_life_simulate(initial_universe,0,universe_dict)
     test_equality_0 = np.array(test_universe_0 == np.array([[0 , 0, 0, 0, 0, 0],
         [0 , 0, 1, 1, 0, 0],
         [0 , 1, 1, 0, 0, 0],
@@ -101,9 +101,10 @@ def test_simulate():
         [0 , 0, 0, 0, 0, 0],
         [0 , 0, 0, 0, 0, 0]],dtype=np.uint8))
     assert test_equality_0.all()
+    reset_universe_dict(universe_dict)
     
     # One time
-    test_universe_1 = game_life_simulate(initial_universe,1)
+    test_universe_1 = game_life_simulate(initial_universe,1,universe_dict)
     test_equality_1 = np.array(test_universe_1 == np.array([[0 , 0, 0, 0, 0, 0],
         [0 , 1, 1, 1, 0, 0],
         [0 , 1, 0, 0, 0, 0],
@@ -111,9 +112,10 @@ def test_simulate():
         [0 , 0, 0, 0, 0, 0],
         [0 , 0, 0, 0, 0, 0]],dtype=np.uint8))
     assert test_equality_1.all()
+    reset_universe_dict(universe_dict)
     
     # Two times
-    test_universe_2 = game_life_simulate(initial_universe,2)
+    test_universe_2 = game_life_simulate(initial_universe,2,universe_dict)
     test_equality_2 = np.array(test_universe_2 == np.array([[0, 0, 1, 0, 0, 0],
         [0, 1, 1, 0, 0, 0],
         [1, 0, 0, 1, 0, 0],
@@ -121,6 +123,7 @@ def test_simulate():
         [0 ,0, 0, 0, 0, 0],
         [0 ,0, 0, 0, 0, 0]],dtype=np.uint8))
     assert test_equality_2.all()
+    reset_universe_dict(universe_dict)
 
 
 ### Full Test ###
