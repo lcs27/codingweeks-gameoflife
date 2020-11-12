@@ -9,3 +9,5 @@ Alimenter un catalogue d'amorces en scrapant le deuxième site et en inférant e
 (see https://gitlab-cw5.centralesupelec.fr/celine.hudelot/cs_codingweek_game_of_life_2020/-/blob/master/jeudelavie_S1_Amorces.md  befor step 1)
 --------------------Amelioration 3--------------------
 Amelioration of function generation()
+--------------------Amelioration 4--------------------
+bondary issue

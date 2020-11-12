@@ -94,12 +94,6 @@ def display_universe(universe):
     -------
     universe
         Numpy array of universe to be displayed
-    
-    plt.imshow(universe, cmap='Greys')
-    plt.show():
-    -------
-    universe
-        Numpy array of universe to be displayed
     '''
     plt.imshow(universe, cmap='Greys')
     plt.show()
@@ -134,6 +128,8 @@ dict_seed = {
         [1,1,1]
     ]
 }
+
+
 if __name__ == "__main__":
     universe=generate_universe([6,6])
     #print(np.array([[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]))
