@@ -41,12 +41,6 @@ def survival(coordinates,universe):
                 if modified_x >= num_cols_univ:
                     modified_x = 0
                 count += universe[modified_y,modified_x]
-            # if y+i <=0 or x+j <=0:
-            #     continue
-            # try:
-            #     count += universe[y+i,x+j]
-            # except:
-            #     continue # Neighbour cell does not exist (i.e. out of universe boundary)
 
     # Judge survivability
     if universe[y,x] and (count == 2 or count == 3): # Live cell stays alive
