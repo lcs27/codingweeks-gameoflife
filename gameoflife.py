@@ -1,6 +1,7 @@
 import argparse
 from animation import animate
 
+
 gameoflife = argparse.ArgumentParser(description='Start a game of life')
 
 # universe_size
@@ -29,7 +30,8 @@ gameoflife.add_argument('-s','--save', dest='save', action='store_true', default
 # writer
 gameoflife.add_argument('-w','--writer', metavar='writer', dest='writer',type=str, default='ffmpeg', help='Writer of the animation, default to ffmpeg')
 
+args = gameoflife.parse_args()
 
 # Run the code
-args = gameoflife.parse_args()
-animate((args.universe_size_y,args.universe_size_x),args.seed,(args.seed_position_y,args.seed_position_x),args.cmap,args.n_generations,args.interval,args.save,args.writer)
+if __name__ == '__main__':
+    animate((args.universe_size_y,args.universe_size_x),args.seed,(args.seed_position_y,args.seed_position_x),args.cmap,args.n_generations,args.interval,args.save,args.writer)
