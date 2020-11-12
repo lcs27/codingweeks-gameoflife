@@ -13,7 +13,7 @@ def beacon_gif():
 
     # Initialisation
     fig = plt.figure()
-    im = plt.imshow(universe, cmap='Greys', animated = True)
+    im = plt.imshow(universe, cmap='Greys', animated=True)
 
     # Update formula
     def update(i):
@@ -21,7 +21,7 @@ def beacon_gif():
         return im,
     
     # Animating beacon for 24 frames
-    ani = anim.FuncAnimation(fig, update, frames=24, interval = 500, blit = True)
+    ani = anim.FuncAnimation(fig, update, frames=24, interval=500, blit = True)
     plt.show()
 
     # Saving gif
@@ -69,7 +69,7 @@ def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,
         return im,
     
     # Animating universe
-    ani = anim.FuncAnimation(fig, update, frames=n_generations, interval = interval, blit = True)
+    ani = anim.FuncAnimation(fig, update, frames=n_generations, interval=interval, blit=True)
     
     # Saving gif, or showing it
     if save:

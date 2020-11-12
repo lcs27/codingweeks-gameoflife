@@ -18,6 +18,6 @@ if __name__=='__main__':
     #animate((20,20),'line_3',(8,8),'Greys',save=True)
 
     # planeur gliding from bottom right to top left; DISPLAY, NOT SAVED
-    animate((100,100),"planeur",(95,95),'Greys',n_generations=1000,interval=1,save=False)
+    animate((100,100),"planeur",(95,95),'Greys',n_generations=400,interval=10,save=False)
 
     print('Finished, check working directory for saved gif file if save is set to true!')
