@@ -14,10 +14,10 @@ if __name__=='__main__':
     # r_pentomino
     #animate((20,20),"r_pentomino",(7,7),'Greys',n_generations=50,interval=50,save=True)
 
-    #planeur
+    # planeur
     #animate((20,20),'line_3',(8,8),'Greys',save=True)
 
-    # infinite DISPLAY, NOT SAVED
-    animate((50,50),"infinite",(23,23),'Greys',n_generations=100,interval=50,save=False)
+    # planeur gliding from bottom right to top left; DISPLAY, NOT SAVED
+    animate((100,100),"planeur",(95,95),'Greys',n_generations=1000,interval=1,save=False)
 
     print('Finished, check working directory for saved gif file if save is set to true!')
