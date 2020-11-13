@@ -122,7 +122,7 @@ def reset_universe_dict(universe_dict):
         universe_dict reset
     
     '''
-    universe_dict = {}
+    universe_dict.clear()
 
 
 universe_dict = {}
