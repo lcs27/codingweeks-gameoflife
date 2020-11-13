@@ -21,4 +21,7 @@ bondary issue
 
 Amelioration 5
 ===================================
-Use Toplevel to create the Controller part
+graphical_gameoflife.py:  
+1. Add a stop function; 
+2. Fix the bug: the previous one couldn't run at the same time, and the previous window haven't been closed.
+

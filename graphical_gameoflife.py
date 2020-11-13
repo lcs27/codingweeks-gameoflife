@@ -44,10 +44,6 @@ def display_and_update_graphical_gameoflife():
 
     '''
     (Controller part) Define parameters to generate a graphical game world
-
-    Return
-    -------
-    Parameters to generate the graphical universe 
     '''
 
     window = Tk()
@@ -66,12 +62,32 @@ def display_and_update_graphical_gameoflife():
     reponse2.pack()
 
     # Define the seed to be planted
-    seed = StringVar(value='line_3', name = 'seed')
+    # seed = StringVar(value='line_3', name = 'seed')
     demande_seed = Label(
         window, text="Give the name of the seed you want to plant")
-    reponse3 = Entry(window, textvariable=seed, width=10)
+    # reponse3 = Entry(window, textvariable=seed, width=10)
     demande_seed.pack()
+    # reponse3.pack()
+
+    reponse3 = Menubutton(
+        window, text="Seed", relief=RAISED, )
+    seedVar = StringVar()
+    Menu1 = Menu(reponse3, tearoff=0)
+    
+    Menu1.add_radiobutton(label="boat", variable=seedVar, value='boat')
+    Menu1.add_radiobutton(label="r_pentomino",
+                          variable=seedVar, value='r_pentomino')
+    Menu1.add_radiobutton(label="beacon", variable=seedVar, value='beacon')
+    Menu1.add_radiobutton(label="acorn", variable=seedVar, value='acorn')
+    Menu1.add_radiobutton(label="block_switch_engine",
+                          variable=seedVar, value='block_switch_engine')
+    Menu1.add_radiobutton(label="infinite", variable=seedVar, value='infinite')
+    Menu1.add_radiobutton(label="planeur", variable=seedVar, value='planeur')
+    Menu1.add_radiobutton(label="line_3", variable=seedVar, value='line_3')
+    reponse3["menu"] = Menu1
+    seed_label = Label(window, textvariable=seedVar)
     reponse3.pack()
+    seed_label.pack()
 
     # Define the seed position in the universe
     x_start = StringVar(value='5')
@@ -87,10 +103,10 @@ def display_and_update_graphical_gameoflife():
     Y_start.pack()
     reponse5.pack()
 
-    # Define the iterations of game_of_life
-    iterations = StringVar(value='30')
+    # Define the interations of game_of_life
+    interations = StringVar(value='30')
     n_generations = Label(window, text="Enter the desired number of steps")
-    reponse6 = Entry(window, textvariable=iterations, width=10)
+    reponse6 = Entry(window, textvariable=interations, width=10)
     n_generations.pack()
     reponse6.pack()
 
@@ -109,8 +125,8 @@ def display_and_update_graphical_gameoflife():
         Use 2 tables to express the graphical View, table1 used to generate rectangle Window (Universe), table2 used to generate circle Window (Living cells)
         '''
         
-        params = [int(reponse1.get()), int(reponse2.get()), reponse3.get(), int(
-        x_start.get()), int(y_start.get()), int(iterations.get()), interval.get()]
+        params = [int(reponse1.get()), int(reponse2.get()), seedVar.get(), int(
+        x_start.get()), int(y_start.get()), int(interations.get()), interval.get()]
         print(params)
         # Initialize the universe
         universe = generate_universe(size=(params[0], params[1]))
@@ -173,15 +189,15 @@ def display_and_update_graphical_gameoflife():
                             remove(table1, table2, row, col)
                             # Similarly, the remove function allows you to remove a circle in the boxes concerned
             top.update()
-
-
-        # We update to see the changes on our interface
+            # We update to see the changes on our interface
 
     bouton_gene = Button(window, text="Generate", command=canvas_game_of_life)
     bouton_gene.pack()
     window.mainloop()
 
-display_and_update_graphical_gameoflife()    
+if __name__ == "__main__":
+    display_and_update_graphical_gameoflife()    
+
 
 
 

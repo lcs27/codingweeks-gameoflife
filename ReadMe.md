@@ -17,22 +17,28 @@ Input `python gameoflife.py [-h] [-c cmap] [-g n_generations] [-i interval] [-s]
 Example :  
 ```python gameoflife.py -c cool -g 100 -i 100 -s 50 50 planeur 45 45```  
 
-You will get:  
-<img src="gif/planeur_universe_50-50_generations_100_interval_100.gif"> 
+You will get:   
+<img src="gif/planeur_universe_50-50_generations_100_interval_100.gif" width=427 height=320> 
 
-By Graphical Interface    
+By Graphical Interface(We propose 2 Graphical Interface!)   
 ------------------------------------
-Input `python graphical_gameoflife.py` and play with it.  
+GUI1:Input `python graphical_gameoflife.py` and play with it.  
 
-You will get the following interface: 
-<img src="gif/demo_graphic.jpg">  
+You will get the following interface:   
+<img src="gif/demo_graphic.jpg" width=484 height=360>  
+
+GUI2:Input `python gui_gameoflife.py` and play with it.  
+You will get the following interface:   
+<img src="gif/demo_gui.jpg" width=484 height=360> 
 
 List Of Files
 ====================================
 Main Files
 ------------------------------------
 - graphical_gameoflife.py : Input `python graphical_gameoflife.py` to run the GUI of the game.  
-- gameoflife.py : Input `python gameoflife.py -h` for a list of arguments for game set-up from command-line interface.  
+- gui_gameoflife.py : Input `python graphical_gameoflife.py` to run the 2nd GUI of the game.
+- gameoflife.py : Input `python gameoflife.py -h` for a list of arguments for game set-up from command-line interface. 
+  
 
 Saved GIFs Directory
 ------------------------------------
@@ -43,6 +49,7 @@ Support Files
 - generate_universe.py : Includes functions to generate universe, create seed and add seed to universe.  
 - simulation.py : Includes functions to check cell survivability and generate over any number of iterations.  
 - animation.py : Includes functions to animate the game with an option to save the gif in the default folder << ./gif/ >>.  
+- dict_seed.py : Includes the dictionary of seeds
 
 Test Files
 ------------------------------------
