@@ -12,17 +12,17 @@ Usages
 ====================================
 By Command-line Interface 
 ------------------------------------
-Input 'python gameoflife.py [-h] [-c cmap] [-g n_generations] [-i interval] [-s] [-w writer] uY uX s sY sX' into the terminal.  
+Input `python gameoflife.py [-h] [-c cmap] [-g n_generations] [-i interval] [-s] [-w writer] uY uX s sY sX` into the terminal.  
 
 Example :  
-''' python gameoflife.py -c cool -g 100 -i 100 -s 50 50 planeur 45 45 '''  
+```python gameoflife.py -c cool -g 100 -i 100 -s 50 50 planeur 45 45```  
 
 You will get:  
 <img src="gif/planeur_universe_50-50_generations_100_interval_100.gif"> 
 
 By Graphical Interface    
 ------------------------------------
-Input 'python graphical_gameoflife.py' and play with it.  
+Input `python graphical_gameoflife.py` and play with it.  
 
 You will get the following interface: 
 <img src="gif/demo_graphic.jpg">  
@@ -31,8 +31,8 @@ List Of Files
 ====================================
 Main Files
 ------------------------------------
-- graphical_gameoflife.py : Input "python graphical_gameoflife.py" to run the GUI of the game.  
-- gameoflife.py : Input "python gameoflife.py -h" for a list of arguments for game set-up from command-line interface.  
+- graphical_gameoflife.py : Input `python graphical_gameoflife.py` to run the GUI of the game.  
+- gameoflife.py : Input `python gameoflife.py -h` for a list of arguments for game set-up from command-line interface.  
 
 Saved GIFs Directory
 ------------------------------------
