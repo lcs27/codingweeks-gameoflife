@@ -27,26 +27,9 @@ def survival(coordinates,universe):
         for j in [-1,0,1]:
             if i == 0 and j == 0:
                 continue # Do not include cell whose neighbours are to be checked
-<<<<<<< HEAD
-            if y + i >= 0 and x + j >= 0 and y + i < num_rows_univ and x + j < num_cols_univ:
-                count += universe[y+i,x+j]
-            else:
-                modified_y = y + i
-                modified_x = x + j
-                if modified_y == -1:
-                    modified_y = num_rows_univ - 1
-                if modified_y >= num_rows_univ:
-                    modified_y = 0
-                if modified_x == -1:
-                    modified_x = num_cols_univ - 1
-                if modified_x >= num_cols_univ:
-                    modified_x = 0
-                count += universe[modified_y,modified_x]
-=======
             modified_y = (y + i) % num_rows_univ # Implement torroidal universe
             modified_x = (x + j) % num_cols_univ # Implement torroidal universe
-            count += universe[modified_y,modified_x] 
->>>>>>> db108e99c2c87d770c14e7e6fdfcfaac4d22164e
+            count += universe[modified_y,modified_x]
 
     # Judge survivability
     if universe[y,x] and (count == 2 or count == 3): # Live cell stays alive
