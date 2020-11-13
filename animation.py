@@ -1,4 +1,9 @@
-import numpy as np
+'''
+Date: 2020-11-12 21:17:01
+LastEditors: Lonel Vino
+LastEditTime: 2020-11-12 21:52:43
+FilePath: \gameoflife\animation.py
+'''
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 from generate_universe import *
@@ -6,39 +11,42 @@ from simulation import *
 
 
 def beacon_gif():
+
     # Generation of universe
     universe = generate_universe(size=(6, 6))
     seed = create_seed(type_seed = "beacon")
     universe = add_seed_to_universe(seed,universe,x_start=1,y_start=1)
 
-    #Initialisation
+    # Initialisation
     fig = plt.figure()
-    im = plt.imshow(universe, cmap='Greys', animated = True)
+    im = plt.imshow(universe, cmap='Greys', animated=True)
 
-    #Update formula
+    # Update formula
     def update(i):
-        im.set_array(game_life_simulate(universe,i))
+        im.set_array(game_life_simulate(universe,i,universe_dict))
         return im,
     
-    #Animating beacon for 24 frames
-    ani = anim.FuncAnimation(fig, update, frames=24, interval = 500, blit = True)
+    # Animating beacon for 24 frames
+    ani = anim.FuncAnimation(fig, update, frames=24, interval=500, blit = True)
     plt.show()
 
-    #Saving gif
-    ani.save('filename.gif', writer='imagemagick')
+    # Saving gif
+    ani.save('beacon.gif', writer='imagemagick')
+
+    # Reset universe_dict
+    reset_universe_dict(universe_dict)
 
 
-    
-def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,save=False):
+def animate(universe_size,seed,seed_position,cmap='Greys',n_generations=30,interval=300,save=False,writer='ffmpeg'):
     '''
-    The basic animation of game_of_life
+   Basic animation of game_of_life
 
     Parameters
     --------
     universe_size: 
-        tuple (int, int) dimensions of the universe
+        Tuple (int, int) dimensions of the universe
     seed: 
-        (list of lists, np.ndarray) initial starting array
+        (str) seed to be added
     seed_position: 
         (tuple (int, int)) coordinates where the top-left corner of the seed array should be pinned
     cmap
@@ -49,30 +57,32 @@ def animate(universe_size,seed,seed_position,cmap,n_generations=30,interval=300,
         (int )time interval between updates (milliseconds), defaults to 300ms
     save
         (bool) whether the animation should be saved, defaults to False
+    writer
+        (str) the writer of video, defaults to 'ffmpeg'
     '''
 
     # Generation of universe
     universe = generate_universe(size=universe_size)
     universe = add_seed_to_universe(create_seed(seed),universe,x_start=seed_position[1],y_start=seed_position[0])
     
-    #Initialisation
+    # Initialisation
     fig = plt.figure()
     im = plt.imshow(universe, cmap=cmap, animated = True)
 
     #Update formula
     def update(i):
-        im.set_array(game_life_simulate(universe,i))
+        im.set_array(game_life_simulate(universe,i,universe_dict))
         return im,
     
-    #Animating beacon for 24 frames
-    ani = anim.FuncAnimation(fig, update, frames=n_generations, interval = interval, blit = True)
+    # Animating universe
+    ani = anim.FuncAnimation(fig, update, frames=n_generations, interval=interval, blit=True)
     
-    #Saving gif
+    # Saving gif, or showing it
     if save:
-        name_of_gif=seed+'in'+str(universe_size[0])+'_'+str(universe_size[1])+'.gif'
-        ani.save(name_of_gif, writer='imagemagick')
+        name_of_gif = seed + '_universe_' + str(universe_size[0]) + '-' + str(universe_size[1]) + '_generations_' + str(n_generations) + '_interval_' + str(interval)+ '.gif'
+        ani.save(name_of_gif, writer=writer) # To be changed to imagemagick if necessairy
     else:
         plt.show()
 
-    
-    
+    # Reset universe_dict
+    reset_universe_dict(universe_dict)
