@@ -75,6 +75,7 @@ def animate(universe_size,seed,seed_position,cmap='Greys',n_generations=30,inter
     if save:
         name_of_gif = './gif/' + seed + '_universe_' + str(universe_size[0]) + '-' + str(universe_size[1]) + '_generations_' + str(n_generations) + '_interval_' + str(interval)+ '.gif'
         ani.save(name_of_gif, writer=writer) # To be changed to imagemagick if necessairy
-
+    else:
+        plt.show()
     # Reset universe_dict
     reset_universe_dict(universe_dict)
