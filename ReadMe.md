@@ -22,14 +22,14 @@ You will get:
 
 By Graphical Interface(We propose 2 Graphical Interface!)   
 ------------------------------------
-GUI1:Input `python graphical_gameoflife.py` and play with it.  
+GUI1:Input `python gui_gameoflife.py` and play with it.  
+You will get the following interface:   
+<img src="gif/demo_gui.jpg" width=484 height=360>   
+
+GUI2:Input `python graphical_gameoflife.py` and play with it.  
 
 You will get the following interface:   
-<img src="gif/demo_graphic.jpg" width=484 height=360>  
-
-GUI2:Input `python gui_gameoflife.py` and play with it.  
-You will get the following interface:   
-<img src="gif/demo_gui.jpg" width=484 height=360> 
+<img src="gif/demo_graphic.jpg" width=484 height=360>   
 
 List Of Files
 ====================================
