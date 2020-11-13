@@ -213,7 +213,4 @@ def display_and_update_graphical_gameoflife():
     bouton_gene.pack()
     window.mainloop()
 
-display_and_update_graphical_gameoflife()    
-
-
-
+display_and_update_graphical_gameoflife()

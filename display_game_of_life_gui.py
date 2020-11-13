@@ -182,6 +182,3 @@ def interface_graph_game():
     root.mainloop()
 
 interface_graph_game()
-
-
-
