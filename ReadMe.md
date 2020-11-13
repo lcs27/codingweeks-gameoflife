@@ -15,16 +15,17 @@ By Command-line Interface
 Input 'python gameoflife.py [-h] [-c cmap] [-g n_generations] [-i interval] [-s] [-w writer] uY uX s sY sX' into the terminal.  
 
 Example :  
-'''
-python gameoflife.py -c cool -g 100 -i 100 -s 50 50 planeur 45 45
-'''
-You will get:  (to be finished by uploading the file)  
+''' python gameoflife.py -c cool -g 100 -i 100 -s 50 50 planeur 45 45 '''  
 
+You will get:  
+<img src="gif/planeur_universe_50-50_generations_100_interval_100.gif"> 
 
 By Graphical Interface    
 ------------------------------------
 Input 'python graphical_gameoflife.py' and play with it.  
-You will get the following interface: (to be finished by uploading the file)  
+
+You will get the following interface: 
+<img src="gif/demo_graphic.jpg">  
 
 List Of Files
 ====================================

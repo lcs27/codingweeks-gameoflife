@@ -25,7 +25,7 @@ def beacon_gif():
     plt.show()
 
     # Saving gif
-    ani.save('beacon.gif', writer='imagemagick')
+    ani.save('./gif/beacon.gif', writer='imagemagick')
 
     # Reset universe_dict
     reset_universe_dict(universe_dict)

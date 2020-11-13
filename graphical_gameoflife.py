@@ -87,10 +87,10 @@ def display_and_update_graphical_gameoflife():
     Y_start.pack()
     reponse5.pack()
 
-    # Define the interations of game_of_life
-    interations = StringVar(value='30')
+    # Define the iterations of game_of_life
+    iterations = StringVar(value='30')
     n_generations = Label(window, text="Enter the desired number of steps")
-    reponse6 = Entry(window, textvariable=interations, width=10)
+    reponse6 = Entry(window, textvariable=iterations, width=10)
     n_generations.pack()
     reponse6.pack()
 
@@ -110,7 +110,7 @@ def display_and_update_graphical_gameoflife():
         '''
         
         params = [int(reponse1.get()), int(reponse2.get()), reponse3.get(), int(
-        x_start.get()), int(y_start.get()), int(interations.get()), interval.get()]
+        x_start.get()), int(y_start.get()), int(iterations.get()), interval.get()]
         print(params)
         # Initialize the universe
         universe = generate_universe(size=(params[0], params[1]))
