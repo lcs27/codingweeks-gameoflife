@@ -1,5 +1,7 @@
+from dict_seed import dict_seed
 import numpy as np
 import matplotlib.pyplot as plt
+
 
 
 def generate_universe(size):
@@ -98,36 +100,6 @@ def display_universe(universe):
     plt.imshow(universe, cmap='Greys')
     plt.show()
 
-
-dict_seed = {
-    "boat": [[1, 1, 0], [1, 0, 1], [0, 1, 0]],
-    "r_pentomino": [[0, 1, 1], [1, 1, 0], [0, 1, 0]],
-    "beacon": [[1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 1, 1], [0, 0, 1, 1]],
-    "acorn": [[0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0], [1, 1, 0, 0, 1, 1, 1]],
-    "block_switch_engine": [
-        [0, 0, 0, 0, 0, 0, 1, 0],
-        [0, 0, 0, 0, 1, 0, 1, 1],
-        [0, 0, 0, 0, 1, 0, 1, 0],
-        [0, 0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 1, 0, 0, 0, 0, 0],
-        [1, 0, 1, 0, 0, 0, 0, 0],
-    ],
-    "infinite": [
-        [1, 1, 1, 0, 1],
-        [1, 0, 0, 0, 0],
-        [0, 0, 0, 1, 1],
-        [0, 1, 1, 0, 1],
-        [1, 0, 1, 0, 1],
-    ],
-    'planeur':[
-       [0,1,0],
-       [1,1,0],
-       [1,0,1]
-    ],
-    'line_3':[
-        [1,1,1]
-    ]
-}
 
 
 if __name__ == "__main__":

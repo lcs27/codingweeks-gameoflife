@@ -65,22 +65,13 @@ def draw_block(x, y, alive_color):
     pygame.draw.circle(screen, alive_color, center_point, block_size / 2,0)
 
 
-<<<<<<< HEAD
 def main():
-=======
-def gameoflife():
->>>>>>> lcs_GUI
     h = 0
     cell_number = 0
     alive_color = pygame.Color(0,0,0)
     alive_color.hsva = [h, 100, 100]
-<<<<<<< HEAD
-    xlen = xmax // 9
-    ylen = ymax // 9
-=======
     xlen = int(xmax / 9)
     ylen = int(ymax / 9)
->>>>>>> lcs_GUI
     while True:
         world = make_random_grid(xlen, ylen)
         for i in range(200):
