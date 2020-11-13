@@ -1,3 +1,9 @@
+<!--
+ * @Date: 2020-11-12 21:17:01
+ * @LastEditors: Lonel Vino
+ * @LastEditTime: 2020-11-12 22:11:33
+ * @FilePath: \gameoflife\to_do.md
+-->
 This is the area reserved for the amelioration that we think could be done at the end of this project.
 
 Amelioration 1
@@ -17,12 +23,8 @@ Amelioration of function generation()
 
 Amelioration 4
 ====================================
-<<<<<<< HEAD
-bondary issue
-=======
 bondary issue
 
 Amelioration 5
 ===================================
 Use Toplevel to create the Controller part
->>>>>>> Haonan
