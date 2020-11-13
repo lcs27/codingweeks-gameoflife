@@ -1,8 +1,3 @@
-'''
-Date: 2020-11-12 21:31:20
-LastEditors: Lonel Vino
-LastEditTime: 2020-11-12 22:10:48
-'''
 from tkinter import *
 import numpy as np
 from generate_universe import *
