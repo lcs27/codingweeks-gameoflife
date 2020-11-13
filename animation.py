@@ -77,5 +77,6 @@ def animate(universe_size,seed,seed_position,cmap='Greys',n_generations=30,inter
         ani.save(name_of_gif, writer=writer) # To be changed to imagemagick if necessairy
     else:
         plt.show()
+        
     # Reset universe_dict
     reset_universe_dict(universe_dict)
